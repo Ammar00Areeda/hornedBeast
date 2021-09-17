@@ -1,14 +1,13 @@
 import React from "react";
-import reactDom from 'react-dom';
 
 class Header extends React.Component{
     render(){
         return(
-    <div>
-
-    <h1>horned animals   </h1>
-    </div>
+            <>
+            <h1>GalleryOfHornes</h1>
+            </>
         )
-}}
-   
+    }
+
+}
 export default Header;
