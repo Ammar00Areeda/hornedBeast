@@ -1,43 +1,41 @@
-/* eslint-disable react/jsx-no-undef */
 import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
-class HornedBeasts extends React.Component {
+class HornedBeast extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            numOfVotes: 0
-        }
+            votes: 0
+        };
     }
-    increaseNumberOfVotes = () => {
+
+    increaseVote = () => {
         this.setState({
-            numOfVotes: this.state.numOfVotes + 1
+            votes: this.state.votes + 1
         })
-    }
+    };
 
     render() {
         return (
-            
-
-
-
-
-            <div>
-               <Card style={{ width: '18rem' }}>
-                    <Card.Img className='cardCat' variant="top" src={this.props.image_url} alt={this.props.title} />
+            <div className="card">
+                <Card style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src={this.props.image_url} alt={this.props.title} title={this.props.title} />
                     <Card.Body>
                         <Card.Title>{this.props.title}</Card.Title>
                         <Card.Text>
-                            Number of votes {this.state.numOfVotes}
+                        {this.props.description}
                         </Card.Text>
-                        <Button onClick={this.increasenumOfVotes} variant="primary">Go somewhere</Button>
+                        <Card.Text>
+                        Number of votes: {this.state.votes}
+                        </Card.Text>
+                        <Button variant="primary" onClick={this.increaseVote}>vote</Button>
                     </Card.Body>
                 </Card>
             </div>
         )
     }
-
-
-
 }
 
-export default HornedBeasts;
+export default HornedBeast;
